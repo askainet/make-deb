@@ -34,9 +34,10 @@ class DebianConfiguration(object):
         "compat": 9,
     }
 
-    def __init__(self, rootdir):
+    def __init__(self, rootdir, args):
         self.rootdir = rootdir
         self.context = self.DEFAULT_CONTEXT.copy()
+        self.context.update({"install_path": args.install_path})
         self.context.update({"date": datetime.datetime.now()})
         self.context.update(self._context_from_debiandepends())
         self.context.update(self._context_from_setuppy())

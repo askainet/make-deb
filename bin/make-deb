@@ -6,9 +6,9 @@ import sys
 from make_deb import DebianConfiguration, DebianConfigurationException
 
 
-def main():
+def main(args):
     try:
-        debconf = DebianConfiguration(os.getcwd())
+        debconf = DebianConfiguration(os.getcwd(), args)
         debconf.render()
     except DebianConfigurationException as e:
         print(e)
@@ -18,4 +18,7 @@ def main():
     return 0
 
 if __name__ == "__main__":
-    sys.exit(main())
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--install-path', default='/usr/share/python', help='Default: /usr/share/python')
+    args = parser.parse_args()
+    sys.exit(main(args))
