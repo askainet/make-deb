@@ -92,14 +92,8 @@ class DebianConfiguration(object):
     def render(self):
         output_dir = os.path.join(self.rootdir, "debian")
 
-        if os.path.exists(output_dir):
-            res = input("A debian directory exists. Replace it? [Y/n]: ")
-            if res.lower() in ["n", "no"]:
-                raise DebianConfigurationException(
-                    "Not removing debian directory")
-            shutil.rmtree(output_dir)
-
-        os.mkdir(output_dir)
+        if not os.path.exists(output_dir):
+            os.mkdir(output_dir)
 
         for template in self.DEBIAN_CONFIGURATION_TEMPLATES:
             filename = os.path.basename(template).replace(".j2", "")
