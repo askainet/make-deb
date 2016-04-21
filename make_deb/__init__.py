@@ -44,7 +44,7 @@ class DebianConfiguration(object):
 
     def _context_from_debiandepends(self):
         debiandepends_path = os.path.join(self.rootdir, "debian/depends")
-        if os.path.exists(setuppy_path):
+        if os.path.exists(debiandepends_path):
             with open(debiandepends_path) as f:
                 depends = ", ".join(line.strip() for line in f)
                 return {"debian_depends": depends}
