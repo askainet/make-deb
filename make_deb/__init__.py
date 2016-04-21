@@ -38,8 +38,16 @@ class DebianConfiguration(object):
         self.rootdir = rootdir
         self.context = self.DEFAULT_CONTEXT.copy()
         self.context.update({"date": datetime.datetime.now()})
+        self.context.update(self._context_from_debiandepends())
         self.context.update(self._context_from_setuppy())
         self.context.update(self._context_from_git())
+
+    def _context_from_debiandepends(self):
+        debiandepends_path = os.path.join(self.rootdir, "debian/depends")
+        if os.path.exists(setuppy_path):
+            with open(debiandepends_path) as f:
+                depends = ", ".join(line.strip() for line in f)
+                return {"debian_depends": depends}
 
     def _context_from_git(self):
         try:
