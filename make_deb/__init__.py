@@ -49,6 +49,8 @@ class DebianConfiguration(object):
             with open(debiandepends_path) as f:
                 depends = ", ".join(line.strip() for line in f)
                 return {"debian_depends": depends}
+        else:
+            return {}
 
     def _context_from_git(self):
         try:
