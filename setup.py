@@ -5,13 +5,13 @@ from setuptools import setup
 
 setup(
     name='make-deb',
-    version='0.0.5',
+    version='0.0.7',
     include_package_data = True,
     packages = ['make_deb'],
     author = "Rob McQueen",
     author_email = "rob@nylas.com",
-    maintainer = "Nylas Team",
-    maintainer_email = "support@nylas.com",
+    maintainer = "Ivan Lopez",
+    maintainer_email = "ivan@askai.net",
     description = "Generates Debian configuration based on your setup.py",
     package_data = {
         "make_deb": [
