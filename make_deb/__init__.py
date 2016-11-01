@@ -38,6 +38,7 @@ class DebianConfiguration(object):
         self.rootdir = rootdir
         self.context = self.DEFAULT_CONTEXT.copy()
         self.context.update({"install_path": args.install_path})
+        self.context.update({"debian_dist": args.debian_dist})
         self.context.update({"date": datetime.datetime.now()})
         self.context.update(self._context_from_debiandepends())
         self.context.update(self._context_from_setuppy())

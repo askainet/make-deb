@@ -21,5 +21,6 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--install-path', default='/usr/share/python', help='Default: /usr/share/python')
+    parser.add_argument('--debian-dist', default='stable', help='Target debian distribution')
     args = parser.parse_args()
     sys.exit(main(args))
