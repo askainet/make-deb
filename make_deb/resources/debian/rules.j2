@@ -1,4 +1,8 @@
 #!/usr/bin/make -f
 
+{% if pip_no_binary %}
+override_dh_virtualenv:
+    dh_virtualenv --extra-pip-arg='--no-binary' --extra-pip-arg=':all:'
+{% endif %}
 %:
 	dh $@ --with python-virtualenv

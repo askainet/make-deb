@@ -22,5 +22,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--install-path', default='/usr/share/python', help='Default: /usr/share/python')
     parser.add_argument('--debian-dist', default='stable', help='Target debian distribution')
+    parser.add_argument('--pip-no-binary', action='store_true', help='Use --no-binary to install requeriments')
     args = parser.parse_args()
     sys.exit(main(args))
