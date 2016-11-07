@@ -5,7 +5,7 @@ from setuptools import setup
 
 setup(
     name='make-deb',
-    version='0.0.7',
+    version='0.0.8',
     include_package_data = True,
     packages = ['make_deb'],
     author = "Rob McQueen",
